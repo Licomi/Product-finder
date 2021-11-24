@@ -4,7 +4,7 @@ import sqlite3
 
 conn = sqlite3.connect('DATABASE.db')
 cursor = conn.cursor()
-# cursor.execute("""PRAGMA table_info(Category)""")
+cursor.execute("""PRAGMA table_info(Category)""")
 # cursor.execute("""DROP TABLE Сategories""")
 # cursor.execute("""CREATE TABLE Сategories (
 #     id INTEGER PRIMARY KEY AUTOINCREMENT,
