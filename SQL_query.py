@@ -70,9 +70,13 @@ def update_row(DB_name: str, table: str, cond: str, **fields):
     conn.close()
     print(query)
 
+def count_rows(DB_name: str, table: str, cond: str="id>0") -> int:
+    conn = sqlite3.connect(DB_name)
+    cursor = conn.cursor()
+    cursor.execute(f"""SELECT COUNT(*) FROM {table} WHERE {cond}""")
+    res = cursor.fetchone()[0]
+    conn.close()
+    return res
 
-# delete_rows('DATABASE.db', 'Сategories', 'url="Капуста"')
-# insert_one_row('DATABASE.db', 'Сategories', id_shop='1', name='Не крот', url='Не капуста')
 print(select_all('DATABASE.db', 'Сategories'))
-update_row('DATABASE.db', 'Сategories', 'id=7', id_shop=2, name='Енот')
-print(select_all('DATABASE.db', 'Сategories'))
+print(count_rows('DATABASE.db', 'Сategories', 'id=7'))
