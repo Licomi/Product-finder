@@ -1,0 +1,62 @@
+===== Все таблицы БД =====
+
+SELECT name FROM sqlite_master WHERE type='table';
+
+===== Все столбцы таблицы =====
+
+PRAGMA table_info(Shops);
+
+===== Создание таблицы (простая) =====
+
+CREATE TABLE Shops (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    url TEXT,
+    category TEXT,
+    location TEXT,
+    icon BLOB
+);
+
+===== Создание таблицы (один к многим) =====
+
+CREATE TABLE Sellers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_shop INTEGER NOT NULL,
+    name TEXT,
+    url TEXT,
+    category TEXT,
+    icon BLOB,
+    FOREIGN KEY(id_shop) REFERENCES Shops(id)
+);
+
+===== Обновление =====
+
+UPDATE Shops SET 
+  id='1',
+  name='AliExpress',
+  category='All',
+  location='Chine',
+  url='https://best.aliexpress.ru'
+WHERE id=1;
+
+===== Удаление =====
+
+DELETE FROM Shops WHERE id=1;
+
+===== Добавить запись =====
+
+INSERT INTO Shops (name,category,location,url,icon) VALUES (
+  'Ozon',
+  'All',
+  'Russia',
+  'https://www.ozon.ru/',
+  x''
+); 
+
+===== Добавить колонку =====
+
+ALTER TABLE Shops ADD COLUMN Test TEXT;
+
+===== 
+
+ 
