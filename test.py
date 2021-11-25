@@ -1,10 +1,11 @@
 import sqlite3
 # from add_site import get_icon_site
-
+"Сategories"
+"Categories"
 
 conn = sqlite3.connect('DATABASE.db')
 cursor = conn.cursor()
-cursor.execute("""PRAGMA table_info(Category)""")
+# cursor.execute("""PRAGMA table_info(Category)""")
 # cursor.execute("""DROP TABLE Сategories""")
 # cursor.execute("""CREATE TABLE Сategories (
 #     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -19,10 +20,10 @@ cursor.execute("""PRAGMA table_info(Category)""")
 # cursor.execute("""PRAGMA table_info(Сategories);""")
 # cursor.execute("""SELECT * FROM Сategories""")
 # cursor.execute("""SELECT name FROM sqlite_master WHERE type='table'""")
-for i in cursor.fetchall():
-    print(i)
-print('-'*75)
-
+# for i in cursor.fetchall():
+#     print(i)
+# print('-'*75)
+print("Сategories" == "Categories")
 # for i in cursor.fetchall():
 #     print(i)
 
