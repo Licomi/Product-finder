@@ -78,5 +78,8 @@ def count_rows(DB_name: str, table: str, cond: str="id>0") -> int:
     conn.close()
     return res
 
-print(select_all('DATABASE.db', 'Сategories'))
-print(count_rows('DATABASE.db', 'Сategories', 'id=7'))
+
+drop_table('DATABASE.db', 'Sub_categories')
+
+# print(select_all('DATABASE.db', 'Сategories'))
+# print(count_rows('DATABASE.db', 'Сategories', 'id=7'))

@@ -57,6 +57,16 @@ INSERT INTO Shops (name,category,location,url,icon) VALUES (
 
 ALTER TABLE Shops ADD COLUMN Test TEXT;
 
-===== 
+===== COUNT_INNER (Подзапрос) =====
+
+SELECT count(sc_id) Count_rows
+FROM (
+	SELECT c.id, sc.id sc_id, c.name c_name, sc.name, sc.url 
+	FROM Categories c 
+	INNER JOIN Sub_categories sc 
+	ON c.id = sc.id_category
+	WHERE c.name = "Инструменты" OR c.id = 26
+) 
+WHERE c_name = "Инструменты"
 
  
